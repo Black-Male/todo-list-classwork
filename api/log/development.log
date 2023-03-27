@@ -1,0 +1,365 @@
+Started GET "/" for 127.0.0.1 at 2023-03-22 10:33:52 +0300
+Started GET "/" for 127.0.0.1 at 2023-03-22 10:33:52 +0300
+Processing by Rails::WelcomeController#index as HTML
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/george/.rvm/gems/ruby-2.7.6/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendering /home/george/.rvm/gems/ruby-2.7.6/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/george/.rvm/gems/ruby-2.7.6/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.9ms | Allocations: 790)
+  Rendered /home/george/.rvm/gems/ruby-2.7.6/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.7ms | Allocations: 695)
+Completed 200 OK in 34ms (Views: 14.8ms | ActiveRecord: 0.0ms | Allocations: 7214)
+
+
+Completed 200 OK in 33ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 6969)
+
+
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20230322074449)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar NOT NULL, "email" varchar NOT NULL, "password_digest" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230322074449"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-03-22 07:53:08.267624"], ["updated_at", "2023-03-22 07:53:08.267624"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users" for 127.0.0.1 at 2023-03-22 11:23:48 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant UsersController
+Did you mean?  UserController):
+  
+Started POST "/users" for 127.0.0.1 at 2023-03-22 11:25:16 +0300
+Processing by UsersController#register as */*
+  Parameters: {"username"=>"Homomomom", "email"=>"gmailuser@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"Homomomom", "email"=>"gmailuser@gmail.com"}}
+[31mUnpermitted parameters: :password, :user. Context: { controller: UsersController, action: register, request: #<ActionDispatch::Request:0x00007f436832a020>, params: {"username"=>"Homomomom", "email"=>"gmailuser@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"register", "user"=>{"username"=>"Homomomom", "email"=>"gmailuser@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4:in `register'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Homomomom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `register'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gmailuser@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `register'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:4:in `register'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Homomomom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `register'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gmailuser@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `register'
+Completed 422 Unprocessable Entity in 112ms (Views: 10.9ms | ActiveRecord: 3.9ms | Allocations: 43192)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-03-22 11:25:42 +0300
+Processing by UsersController#register as */*
+  Parameters: {"username"=>"Homomomom", "email"=>"gmailuser@gmail.com", "password_digest"=>"[FILTERED]", "user"=>{"username"=>"Homomomom", "email"=>"gmailuser@gmail.com", "password_digest"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: register, request: #<ActionDispatch::Request:0x00007f435c021f88>, params: {"username"=>"Homomomom", "email"=>"gmailuser@gmail.com", "password_digest"=>"[FILTERED]", "controller"=>"users", "action"=>"register", "user"=>{"username"=>"Homomomom", "email"=>"gmailuser@gmail.com", "password_digest"=>"[FILTERED]"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4:in `register'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Homomomom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gmailuser@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `register'
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "Homomomom"], ["email", "gmailuser@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-03-22 08:25:42.587588"], ["updated_at", "2023-03-22 08:25:42.587588"]]
+  ↳ app/controllers/users_controller.rb:4:in `register'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:4:in `register'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "Homomomom"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `register'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "gmailuser@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `register'
+Completed 201 Created in 23ms (Views: 1.3ms | ActiveRecord: 5.2ms | Allocations: 4672)
+
+
+Started GET "/users/login/check" for 127.0.0.1 at 2023-03-23 10:44:25 +0300
+  
+SyntaxError (/home/george/Dummy-Project/api/config/routes.rb:5: syntax error, unexpected string literal, expecting `do' or '{' or '('
+  post '/users/login', to 'users#login'
+                          ^
+/home/george/Dummy-Project/api/config/routes.rb:6: syntax error, unexpected string literal, expecting `do' or '{' or '('
+... get '/users/login/check', to 'users#check_login_status' 
+...                              ^
+):
+  
+config/routes.rb:5: syntax error, unexpected string literal, expecting `do' or '{' or '('
+config/routes.rb:6: syntax error, unexpected string literal, expecting `do' or '{' or '('
+config/routes.rb:5: syntax error, unexpected string literal, expecting `do' or '{' or '('
+config/routes.rb:6: syntax error, unexpected string literal, expecting `do' or '{' or '('
+Started GET "/users/login/check" for 127.0.0.1 at 2023-03-23 10:45:03 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/george/Dummy-Project/api/app/controllers/application_controller.rb:27: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...message: 'failed', status: :401, data: {info: 'Your session ...
+...                            ^~~
+/home/george/Dummy-Project/api/app/controllers/application_controller.rb:27: syntax error, unexpected ')', expecting `end'
+...ease login again to continue'})
+...                              ^
+):
+  
+app/controllers/application_controller.rb:27: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:27: syntax error, unexpected ')', expecting `end'
+app/controllers/application_controller.rb:27: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:27: syntax error, unexpected ')', expecting `end'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/users/login/check" for 127.0.0.1 at 2023-03-23 10:45:39 +0300
+  
+SyntaxError (/home/george/Dummy-Project/api/app/controllers/application_controller.rb:26: syntax error, unexpected `do', expecting `then' or ';' or '\n'
+        unless time_diff > 0 do
+                             ^~
+/home/george/Dummy-Project/api/app/controllers/application_controller.rb:27: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...message: 'failed', status: :401, data: {info: 'Your session ...
+...                            ^~~
+/home/george/Dummy-Project/api/app/controllers/application_controller.rb:27: syntax error, unexpected ')', expecting `end'
+...ease login again to continue'})
+...                              ^
+):
+  
+app/controllers/application_controller.rb:26: syntax error, unexpected `do', expecting `then' or ';' or '\n'
+app/controllers/application_controller.rb:27: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:27: syntax error, unexpected ')', expecting `end'
+app/controllers/application_controller.rb:26: syntax error, unexpected `do', expecting `then' or ';' or '\n'
+app/controllers/application_controller.rb:27: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:27: syntax error, unexpected ')', expecting `end'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/users/login/check" for 127.0.0.1 at 2023-03-23 10:46:45 +0300
+  
+SyntaxError (/home/george/Dummy-Project/api/app/controllers/application_controller.rb:27: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...message: 'failed', status: :401, data: {info: 'Your session ...
+...                            ^~~
+/home/george/Dummy-Project/api/app/controllers/application_controller.rb:27: syntax error, unexpected ')', expecting `end'
+...ease login again to continue'})
+...                              ^
+):
+  
+app/controllers/application_controller.rb:27: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:27: syntax error, unexpected ')', expecting `end'
+app/controllers/application_controller.rb:27: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:27: syntax error, unexpected ')', expecting `end'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/users/login/check" for 127.0.0.1 at 2023-03-23 10:49:23 +0300
+  
+SyntaxError (/home/george/Dummy-Project/api/app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...message: 'failed', status: :401, data: {info: 'Your session ...
+...                            ^~~
+/home/george/Dummy-Project/api/app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+...ease login again to continue'})
+...                              ^
+/home/george/Dummy-Project/api/app/controllers/application_controller.rb:31: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...message: 'failed', status: :401, data: {info: 'Your session ...
+...                            ^~~
+/home/george/Dummy-Project/api/app/controllers/application_controller.rb:31: syntax error, unexpected ')', expecting `end'
+...ease login again to continue'})
+...                              ^
+):
+  
+app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/application_controller.rb:31: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:31: syntax error, unexpected ')', expecting `end'
+app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/application_controller.rb:31: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:31: syntax error, unexpected ')', expecting `end'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/users/login/check" for 127.0.0.1 at 2023-03-23 10:51:16 +0300
+  
+SyntaxError (/home/george/Dummy-Project/api/app/controllers/application_controller.rb:31: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...message: 'failed', status: :401, data: {info: 'Your session ...
+...                            ^~~
+/home/george/Dummy-Project/api/app/controllers/application_controller.rb:31: syntax error, unexpected ')', expecting `end'
+...ease login again to continue'})
+...                              ^
+):
+  
+app/controllers/application_controller.rb:31: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:31: syntax error, unexpected ')', expecting `end'
+app/controllers/application_controller.rb:31: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:31: syntax error, unexpected ')', expecting `end'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/users/login/check" for 127.0.0.1 at 2023-03-23 10:53:08 +0300
+  
+SyntaxError (/home/george/Dummy-Project/api/app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...message: 'failed', status: :401, data: {info: 'Your session ...
+...                            ^~~
+/home/george/Dummy-Project/api/app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+...ease login again to continue'})
+...                              ^
+):
+  
+app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/users" for 127.0.0.1 at 2023-03-23 10:58:58 +0300
+  
+SyntaxError (/home/george/Dummy-Project/api/app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...message: 'failed', status: :401, data: {info: 'Your session ...
+...                            ^~~
+/home/george/Dummy-Project/api/app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+...ease login again to continue'})
+...                              ^
+):
+  
+app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/users" for 127.0.0.1 at 2023-03-23 11:00:09 +0300
+Processing by UsersController#register as */*
+  Parameters: {"username"=>"BigBruhther", "email"=>"fancyemail@gmail.com", "password_digest"=>"[FILTERED]", "user"=>{"username"=>"BigBruhther", "email"=>"fancyemail@gmail.com", "password_digest"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: register, request: #<ActionDispatch::Request:0x00007f26505a7b20>, params: {"username"=>"BigBruhther", "email"=>"fancyemail@gmail.com", "password_digest"=>"[FILTERED]", "controller"=>"users", "action"=>"register", "user"=>{"username"=>"BigBruhther", "email"=>"fancyemail@gmail.com", "password_digest"=>"[FILTERED]"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:7:in `register'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "BigBruhther"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fancyemail@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "BigBruhther"], ["email", "fancyemail@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-03-23 08:00:10.044498"], ["updated_at", "2023-03-23 08:00:10.044498"]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:7:in `register'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "BigBruhther"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `register'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "fancyemail@gmail.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `register'
+Completed 201 Created in 33ms (Views: 0.5ms | ActiveRecord: 2.9ms | Allocations: 40181)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-03-23 11:01:06 +0300
+  
+SyntaxError (/home/george/Dummy-Project/api/app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...message: 'failed', status: :401, data: {info: 'this aint it ...
+...                            ^~~
+/home/george/Dummy-Project/api/app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+...data: {info: 'this aint it g'})
+...                              ^
+):
+  
+app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/users" for 127.0.0.1 at 2023-03-23 11:02:09 +0300
+  
+SyntaxError (/home/george/Dummy-Project/api/app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...message: 'failed', status: :401)
+...                            ^~~
+):
+  
+app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/users" for 127.0.0.1 at 2023-03-23 11:05:11 +0300
+  
+SyntaxError (/home/george/Dummy-Project/api/app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...message: 'failed', status: :401, data: {info: 'Your session ...
+...                            ^~~
+/home/george/Dummy-Project/api/app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+...ease login again to continue'})
+...                              ^
+):
+  
+app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/users" for 127.0.0.1 at 2023-03-23 11:06:41 +0300
+  
+SyntaxError (/home/george/Dummy-Project/api/app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...message: 'failed', status: :401, data: {info: 'Your session ...
+...                            ^~~
+/home/george/Dummy-Project/api/app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+...ease login again to continue'})
+...                              ^
+):
+  
+app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/application_controller.rb:28: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/controllers/application_controller.rb:28: syntax error, unexpected ')', expecting `end'
+app/controllers/users_controller.rb:1:in `<main>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTodos (20230323082748)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "todos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "description" text NOT NULL, "status" integer DEFAULT 0 NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d94154aa95"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_todos_on_user_id" ON "todos" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230323082748"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users/logn" for 127.0.0.1 at 2023-03-23 11:53:24 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/users/logn"):
+  
+Started POST "/users/logn" for 127.0.0.1 at 2023-03-23 11:53:36 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/users/logn"):
+  
+Started POST "/users/login" for 127.0.0.1 at 2023-03-23 11:54:02 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"BigBruhther", "password_digest"=>"[FILTERED]", "user"=>{"username"=>"BigBruhther", "password_digest"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f2654d99eb0>, params: {"username"=>"BigBruhther", "password_digest"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"BigBruhther", "password_digest"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f2654d99eb0>, params: {"username"=>"BigBruhther", "password_digest"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"BigBruhther", "password_digest"=>"[FILTERED]"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'BigBruhther' OR email = NULL) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f2654d99eb0>, params: {"username"=>"BigBruhther", "password_digest"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"BigBruhther", "password_digest"=>"[FILTERED]"}} }[0m
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.6ms | Allocations: 2669)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:20:in `login'
+Started POST "/users/login" for 127.0.0.1 at 2023-03-23 11:55:56 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"BigBruhther", "password_digest"=>"[FILTERED]", "user"=>{"username"=>"BigBruhther", "password_digest"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f264c061390>, params: {"username"=>"BigBruhther", "password_digest"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"BigBruhther", "password_digest"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f264c061390>, params: {"username"=>"BigBruhther", "password_digest"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"BigBruhther", "password_digest"=>"[FILTERED]"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'BigBruhther' OR email = NULL) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f264c061390>, params: {"username"=>"BigBruhther", "password_digest"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"BigBruhther", "password_digest"=>"[FILTERED]"}} }[0m
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 1050)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:20:in `login'
+Started POST "/users/login" for 127.0.0.1 at 2023-03-23 11:58:17 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"BigBruhther", "password_digest"=>"[FILTERED]", "user"=>{"username"=>"BigBruhther", "password_digest"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f263c20c510>, params: {"username"=>"BigBruhther", "password_digest"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"BigBruhther", "password_digest"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f263c20c510>, params: {"username"=>"BigBruhther", "password_digest"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"BigBruhther", "password_digest"=>"[FILTERED]"}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'BigBruhther' OR email = NULL) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f263c20c510>, params: {"username"=>"BigBruhther", "password_digest"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"BigBruhther", "password_digest"=>"[FILTERED]"}} }[0m
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.7ms | Allocations: 2576)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:20:in `login'
+Started POST "/users/login" for 127.0.0.1 at 2023-03-23 11:58:56 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"BigBruhther", "email"=>"fancyemail@gmail.com", "password_digest"=>"[FILTERED]", "user"=>{"username"=>"BigBruhther", "email"=>"fancyemail@gmail.com", "password_digest"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f2644029f88>, params: {"username"=>"BigBruhther", "email"=>"fancyemail@gmail.com", "password_digest"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"BigBruhther", "email"=>"fancyemail@gmail.com", "password_digest"=>"[FILTERED]"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f2644029f88>, params: {"username"=>"BigBruhther", "email"=>"fancyemail@gmail.com", "password_digest"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"BigBruhther", "email"=>"fancyemail@gmail.com", "password_digest"=>"[FILTERED]"}} }[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'BigBruhther' OR email = 'fancyemail@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f2644029f88>, params: {"username"=>"BigBruhther", "email"=>"fancyemail@gmail.com", "password_digest"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"BigBruhther", "email"=>"fancyemail@gmail.com", "password_digest"=>"[FILTERED]"}} }[0m
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms | Allocations: 1081)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:20:in `login'
